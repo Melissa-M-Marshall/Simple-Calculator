@@ -1,1 +1,25 @@
 //This class will allow the calculator to calculate whatever the user wants, as long as it is within 50 symbols at once.
+import java.lang.Math;
+
+class Calculations {
+  private double number1; // Used for calculation; first number imported to math function
+  private double number2; // Used for calculation; second number imported to math function
+  private double[] numbers; // Used to contain all numbers imported by user
+  private char[] symbols; //Used to contain all symbols imported by user
+
+  //Constructor
+  public Calculations() {
+    //numbers = Display.get_numbers(); // Import numbers from display class
+    //symbols = Display.get_symbols(); // Import symbols from display class
+  }
+
+  // Used to determine which symbols should take precedence over others, for ordering purposes.
+  public int determine_precedence(char symbol) {
+    if (symbol == '(') return 4;
+    else if (symbol == ')') return 3;
+    else if (symbol == '^') return 2;
+    else if (symbol == '/' || symbol == '*') return 1;
+    else if (symbol == '-' || symbol == '+') return 0;
+    else return -1;
+  }
+}
